@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SambAFSEditor", "SambAFSEditor\SambAFSEditor.csproj", "{53C7296A-DE85-4F56-8F12-A0A5D4308CA2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuyoTools.App.Cli", "PuyoTools.App.Cli\PuyoTools.App.Cli.csproj", "{0642BDD5-FF0C-41DC-A8AB-AE4EF69B8873}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PuyoTools.App.Shared", "PuyoTools.App.Shared\PuyoTools.App.Shared.shproj", "{CB957E9E-4CAE-4BA5-A2D8-8BE6F93DD681}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuyoTools.App.UI", "PuyoTools.App.UI\PuyoTools.App.UI.csproj", "{239CF5CE-D0EB-4889-A787-CBB7761E9924}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuyoTools.Core", "PuyoTools.Core\PuyoTools.Core.csproj", "{D298CD76-8DC8-4E6C-AE6C-16BD91A6E395}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53C7296A-DE85-4F56-8F12-A0A5D4308CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53C7296A-DE85-4F56-8F12-A0A5D4308CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53C7296A-DE85-4F56-8F12-A0A5D4308CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53C7296A-DE85-4F56-8F12-A0A5D4308CA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0642BDD5-FF0C-41DC-A8AB-AE4EF69B8873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0642BDD5-FF0C-41DC-A8AB-AE4EF69B8873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0642BDD5-FF0C-41DC-A8AB-AE4EF69B8873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0642BDD5-FF0C-41DC-A8AB-AE4EF69B8873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{239CF5CE-D0EB-4889-A787-CBB7761E9924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{239CF5CE-D0EB-4889-A787-CBB7761E9924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{239CF5CE-D0EB-4889-A787-CBB7761E9924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{239CF5CE-D0EB-4889-A787-CBB7761E9924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D298CD76-8DC8-4E6C-AE6C-16BD91A6E395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D298CD76-8DC8-4E6C-AE6C-16BD91A6E395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D298CD76-8DC8-4E6C-AE6C-16BD91A6E395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D298CD76-8DC8-4E6C-AE6C-16BD91A6E395}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4BAF2B2-7615-4927-B0A1-199F60E699B3}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		PuyoTools.App.Shared\PuyoTools.App.Shared.projitems*{0642bdd5-ff0c-41dc-a8ab-ae4ef69b8873}*SharedItemsImports = 5
+		PuyoTools.App.Shared\PuyoTools.App.Shared.projitems*{239cf5ce-d0eb-4889-a787-cbb7761e9924}*SharedItemsImports = 5
+		PuyoTools.App.Shared\PuyoTools.App.Shared.projitems*{cb957e9e-4cae-4ba5-a2d8-8be6f93dd681}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal

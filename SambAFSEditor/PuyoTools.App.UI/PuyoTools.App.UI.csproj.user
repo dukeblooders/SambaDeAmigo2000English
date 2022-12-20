@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Formats\Archives\WriterSettings\AcxWriterSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Formats\Archives\WriterSettings\AfsWriterSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Formats\Archives\WriterSettings\PvmWriterSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Formats\Archives\WriterSettings\SntWriterSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Formats\Textures\WriterSettings\GimWriterSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Formats\Textures\WriterSettings\GvrWriterSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Formats\Textures\WriterSettings\PvrWriterSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Formats\Textures\WriterSettings\SvrWriterSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\AboutPuyoTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ArchiveCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ArchiveExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ArchiveExtractor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\FileCompressor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\FileDecompressor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\FileListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ModuleSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\ProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\RejectedFilesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\TextureDecoder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\TextureEncoder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\TextureViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ToolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ListViewWithReordering.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
