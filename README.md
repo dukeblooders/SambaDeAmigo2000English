@@ -1,7 +1,7 @@
 
 # English conversion for Samba de Amigo Version 2000
 
-![image](https://user-images.githubusercontent.com/48026962/208972425-024b02d2-ebb0-41a7-b728-d7e161923f7e.png)
+[![SAMBA DE AMIGO](http://img.youtube.com/vi/BrYIlFHXL88/0.jpg)](https://youtu.be/BrYIlFHXL88 "Click to watch the video!")  
 
 First, this is not a translation, but a conversion. I don't speak japanese and my english is passable, at best :D
 
