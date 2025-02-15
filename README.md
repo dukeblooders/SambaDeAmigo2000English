@@ -64,5 +64,5 @@ https://github.com/nickworonekin/puyotools
 AltoRetrato for the very helpful documentation:  
 https://github.com/AltoRetrato/samba-de-amigo-2k_modding
 
-People who helped me (ateam, yzb and the others) at:
+People who helped me (ateam, yzb and the others) at:<br>
 https://www.dreamcast-talk.com/forum/viewtopic.php?t=18162
