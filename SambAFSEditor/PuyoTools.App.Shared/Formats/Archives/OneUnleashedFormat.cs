@@ -1,4 +1,6 @@
-﻿using PuyoTools.Core;
+﻿using PuyoTools.Archives;
+using PuyoTools.Archives.Formats.Unleashed;
+using PuyoTools.Core;
 using PuyoTools.Core.Archives;
 using System;
 using System.Collections.Generic;
@@ -23,8 +25,12 @@ namespace PuyoTools.App.Formats.Archives
 
         public string FileExtension => ".one";
 
-        public ArchiveBase GetCodec() => new OneStorybookArchive();
+        public ArchiveBase GetCodec() => new OneUnleashedArchive();
 
-        public bool Identify(Stream source, string filename) => OneUnleashedArchive.Identify(source);
+        public ArchiveReader CreateReader(Stream source) => new OneUnleashedReader(source);
+
+        public ArchiveWriter CreateWriter(Stream destination) => null;
+
+        public bool Identify(Stream source, string filename) => OneUnleashedReader.IsFormat(source);
     }
 }

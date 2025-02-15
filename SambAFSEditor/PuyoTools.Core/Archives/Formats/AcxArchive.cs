@@ -10,12 +10,12 @@ namespace PuyoTools.Core.Archives
     {
         private static readonly byte[] magicCode = { 0, 0, 0, 0 };
 
-        public override ArchiveReader Open(Stream source)
+        public override LegacyArchiveReader Open(Stream source)
         {
             return new AcxArchiveReader(source);
         }
 
-        public override ArchiveWriter Create(Stream destination)
+        public override LegacyArchiveWriter Create(Stream destination)
         {
             return new AcxArchiveWriter(destination);
         }
@@ -59,7 +59,7 @@ namespace PuyoTools.Core.Archives
     }
 
     #region Archive Reader
-    public class AcxArchiveReader : ArchiveReader
+    public class AcxArchiveReader : LegacyArchiveReader
     {
         public AcxArchiveReader(Stream source) : base(source)
         {
@@ -86,7 +86,7 @@ namespace PuyoTools.Core.Archives
     #endregion
 
     #region Archive Writer
-    public class AcxArchiveWriter : ArchiveWriter
+    public class AcxArchiveWriter : LegacyArchiveWriter
     {
         #region Settings
         /// <summary>

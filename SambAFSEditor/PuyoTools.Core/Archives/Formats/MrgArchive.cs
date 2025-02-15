@@ -10,12 +10,12 @@ namespace PuyoTools.Core.Archives
     {
         private static readonly byte[] magicCode = { (byte)'M', (byte)'R', (byte)'G', (byte)'0' };
 
-        public override ArchiveReader Open(Stream source)
+        public override LegacyArchiveReader Open(Stream source)
         {
             return new MrgArchiveReader(source);
         }
 
-        public override ArchiveWriter Create(Stream destination)
+        public override LegacyArchiveWriter Create(Stream destination)
         {
             return new MrgArchiveWriter(destination);
         }
@@ -38,7 +38,7 @@ namespace PuyoTools.Core.Archives
     }
 
     #region Archive Reader
-    public class MrgArchiveReader : ArchiveReader
+    public class MrgArchiveReader : LegacyArchiveReader
     {
         public MrgArchiveReader(Stream source) : base(source)
         {
@@ -75,7 +75,7 @@ namespace PuyoTools.Core.Archives
     #endregion
 
     #region Archive Writer
-    public class MrgArchiveWriter : ArchiveWriter
+    public class MrgArchiveWriter : LegacyArchiveWriter
     {
         public MrgArchiveWriter(Stream destination) : base(destination) { }
 

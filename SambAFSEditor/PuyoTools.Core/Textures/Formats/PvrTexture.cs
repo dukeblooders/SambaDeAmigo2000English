@@ -113,6 +113,8 @@ namespace PuyoTools.Core.Textures
             PvrTextureEncoder texture = new PvrTextureEncoder(source, PixelFormat, DataFormat);
 
             texture.CompressionFormat = compressionFormat;
+            texture.ExternalPalette = ExternalPalette;
+            texture.IncludedPaletteData = IncludedPaletteData;
 
             texture.GlobalIndex = HasGlobalIndex
                 ? GlobalIndex

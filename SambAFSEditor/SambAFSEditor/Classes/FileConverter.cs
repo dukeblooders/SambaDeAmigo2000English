@@ -2,7 +2,7 @@
 using PuyoTools.Core.Compression;
 using PuyoTools.Core.Textures;
 using PuyoTools.Core.Textures.Pvr;
-using System.IO;
+using SixLabors.ImageSharp.PixelFormats;
 
 
 namespace SambAFSEditor
@@ -12,10 +12,20 @@ namespace SambAFSEditor
         public static void Identify(WorkingStruct workStruct, ContentFile contentFile)
         {
             var path = contentFile.GetPath(workStruct);
-            var type = ContentFileType.Unknown;
-            var compression = ContentFileCompression.None;
 
-            using var inStream = File.OpenRead(path);
+            Identify(path, out ContentFileType type, out ContentFileCompression compression);
+
+            contentFile.Type = type;
+            contentFile.Compression = compression;
+        }
+
+
+        public static void Identify(string filePath, out ContentFileType type, out ContentFileCompression compression)
+        {
+            type = ContentFileType.Unknown;
+            compression = ContentFileCompression.None;
+
+            using var inStream = File.OpenRead(filePath);
 
             if (PvmArchive.Identify(inStream))
                 type = ContentFileType.PVM;
@@ -36,9 +46,6 @@ namespace SambAFSEditor
                         type = ContentFileType.PVR;
                 }
             }
-
-            contentFile.Type = type;
-            contentFile.Compression = compression;
         }
 
 
@@ -65,6 +72,16 @@ namespace SambAFSEditor
         public static void EncodePVR(WorkingStruct workStruct, ContentFile contentFile, String sourcePath, PvrTextureDecoder decoder)
         {
             var destinationPath = contentFile.GetPath(workStruct);
+
+            using (var stream = File.OpenRead(sourcePath))
+                EncodePVR(stream, contentFile.Compression, destinationPath, decoder);
+
+            EncodeParent(workStruct, contentFile);
+        }
+
+
+        public static void EncodePVR(Stream stream, ContentFileCompression compression, string destinationPath, PvrTextureDecoder decoder, Color[]? externalPalette = null)
+        {
             var tempPath = Path.GetTempFileName();
 
             try
@@ -76,19 +93,20 @@ namespace SambAFSEditor
                     GlobalIndex = decoder.GlobalIndex ?? 0,
                     HasGlobalIndex = decoder.GlobalIndex != null,
                     PixelFormat = decoder.PixelFormat,
+                    ExternalPalette = externalPalette?.Select(c => new Bgra32(c.R, c.G, c.B, c.A)).ToList(),
+                    IncludedPaletteData = decoder.IncludedPaletteData
                 };
 
-                using (var inStream = File.OpenRead(sourcePath))
                 using (var outStream = File.OpenWrite(tempPath))
-                    switch (contentFile.Compression)
+                    switch (compression)
                     {
                         case ContentFileCompression.PRS:
-                            using (var prsStream = pvr.Write(inStream))
+                            using (var prsStream = pvr.Write(stream))
                                 new PrsCompression().Compress(prsStream, outStream);
                             break;
 
                         default:
-                            pvr.Write(inStream, outStream);
+                            pvr.Write(stream, outStream);
                             break;
                     }
 
@@ -98,8 +116,6 @@ namespace SambAFSEditor
             {
                 File.Delete(tempPath);
             }
-
-            EncodeParent(workStruct, contentFile);
         }
 
 
@@ -107,9 +123,15 @@ namespace SambAFSEditor
         {
             var sourcePath = contentFile.GetPath(workStruct);
 
-            using var fileStream = File.OpenRead(sourcePath);
+            return DecodePVR(sourcePath, contentFile.Compression, out decoder);
+        }
 
-            switch (contentFile.Compression)
+
+        public static Bitmap DecodePVR(string filePath, ContentFileCompression compression, out PvrTextureDecoder decoder)
+        {
+            using var fileStream = File.OpenRead(filePath);
+
+            switch (compression)
             {
                 case ContentFileCompression.PRS:
                     using (var prsStream = new PrsCompression().Decompress(fileStream))

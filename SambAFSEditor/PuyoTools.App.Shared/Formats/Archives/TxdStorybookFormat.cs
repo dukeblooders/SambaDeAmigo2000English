@@ -1,4 +1,6 @@
-﻿using PuyoTools.Core;
+﻿using PuyoTools.Archives;
+using PuyoTools.Archives.Formats.Storybook;
+using PuyoTools.Core;
 using PuyoTools.Core.Archives;
 using System;
 using System.Collections.Generic;
@@ -25,6 +27,10 @@ namespace PuyoTools.App.Formats.Archives
 
         public ArchiveBase GetCodec() => new TxdStorybookArchive();
 
-        public bool Identify(Stream source, string filename) => TxdStorybookArchive.Identify(source);
+        public ArchiveReader CreateReader(Stream source) => new TxdStorybookReader(source);
+
+        public ArchiveWriter CreateWriter(Stream destination) => null;
+
+        public bool Identify(Stream source, string filename) => TxdStorybookReader.IsFormat(source);
     }
 }

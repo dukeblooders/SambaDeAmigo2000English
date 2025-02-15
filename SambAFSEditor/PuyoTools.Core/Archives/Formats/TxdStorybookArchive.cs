@@ -12,12 +12,12 @@ namespace PuyoTools.Core.Archives
     {
         private static readonly byte[] magicCode = { (byte)'T', (byte)'X', (byte)'A', (byte)'G' };
 
-        public override ArchiveReader Open(Stream source)
+        public override LegacyArchiveReader Open(Stream source)
         {
             return new TxdStorybookArchiveReader(source);
         }
 
-        public override ArchiveWriter Create(Stream destination)
+        public override LegacyArchiveWriter Create(Stream destination)
         {
             return new TxdStorybookArchiveWriter(destination);
         }
@@ -40,7 +40,7 @@ namespace PuyoTools.Core.Archives
     }
 
     #region Archive Reader
-    public class TxdStorybookArchiveReader : ArchiveReader
+    public class TxdStorybookArchiveReader : LegacyArchiveReader
     {
         public TxdStorybookArchiveReader(Stream source) : base(source)
         {
@@ -63,7 +63,7 @@ namespace PuyoTools.Core.Archives
     }
     #endregion
 
-    public class TxdStorybookArchiveWriter : ArchiveWriter
+    public class TxdStorybookArchiveWriter : LegacyArchiveWriter
     {
         public TxdStorybookArchiveWriter(Stream destination) : base(destination) { }
 

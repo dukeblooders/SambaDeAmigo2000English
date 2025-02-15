@@ -6,6 +6,7 @@ using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Processing.Processors.Quantization;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -70,6 +71,16 @@ namespace PuyoTools.Core.Textures.Pvr
             }
         }
         private PvrCompressionFormat compressionFormat = PvrCompressionFormat.None;
+
+        /// <summary>
+        /// Set external palette
+        /// </summary>
+        public IList<Bgra32>? ExternalPalette { get; set; }
+
+        /// <summary>
+        /// Set included palette data
+        /// </summary>
+        public byte[]? IncludedPaletteData { get; set; }
 
         /// <summary>
         /// Gets or sets the global index. If <see langword="null"/>, the GBIX header will not be written.
@@ -183,6 +194,10 @@ namespace PuyoTools.Core.Textures.Pvr
                     paletteEntries = 1024; // Actually 256
                 }
             }
+            else if (DataFormat == PvrDataFormat.Vq)
+            {
+                paletteEntries = 0;
+            }
 
             // Read the image.
             sourceImage = Image.Load<Bgra32>(source);
@@ -219,7 +234,14 @@ namespace PuyoTools.Core.Textures.Pvr
                     Dither = Dither ? QuantizerConstants.DefaultDither : null,
                 };
 
-                if (ImageHelper.TryBuildExactPalette(sourceImage, paletteEntries, out var palette))
+                if (ExternalPalette != null)
+                {
+                    quantizer = new PaletteQuantizer(ExternalPalette.Select(x => (Color)x).ToArray(), quantizerOptions)
+                        .CreatePixelSpecificQuantizer<Bgra32>(Configuration.Default);
+
+                    imageFrame = quantizer.QuantizeFrame(sourceImage.Frames.RootFrame, new Rectangle(0, 0, sourceImage.Width, sourceImage.Height));
+                }
+                else if (ImageHelper.TryBuildExactPalette(sourceImage, paletteEntries, out var palette))
                 {
                     quantizer = new PaletteQuantizer(palette.Select(x => (Color)x).ToArray(), quantizerOptions)
                         .CreatePixelSpecificQuantizer<Bgra32>(Configuration.Default);
@@ -261,6 +283,13 @@ namespace PuyoTools.Core.Textures.Pvr
             // Encode as an RGBA image.
             else
             {
+                // Save the palette
+                if (IncludedPaletteData != null)
+                {
+                    dataCodec.Palette = IncludedPaletteData;
+                    encodedPaletteData = EncodePalette(dataCodec.Palette, dataCodec.Palette.Length / 4);
+                }
+
                 // Encode mipmaps
                 if (dataCodec.HasMipmaps)
                 {
@@ -300,11 +329,16 @@ namespace PuyoTools.Core.Textures.Pvr
         /// <returns></returns>
         private byte[] EncodePalette(ReadOnlyMemory<Bgra32> palette)
         {
+            return EncodePalette(MemoryMarshal.AsBytes(palette.Span).ToArray(), palette.Length);
+        }
+
+
+        private byte[] EncodePalette(byte[] paletteData, int paletteLength)
+        {
             var bytesPerPixel = pixelCodec.BitsPerPixel / 8;
-            var paletteData = MemoryMarshal.AsBytes(palette.Span).ToArray();
             var encodedPaletteData = new byte[dataCodec.PaletteEntries * bytesPerPixel];
 
-            for (var i = 0; i < palette.Length; i++)
+            for (var i = 0; i < paletteLength; i++)
             {
                 pixelCodec.EncodePixel(paletteData, 4 * i, encodedPaletteData, i * bytesPerPixel);
             }

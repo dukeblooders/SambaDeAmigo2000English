@@ -12,12 +12,12 @@ namespace PuyoTools.Core.Archives
     {
         private static readonly byte[] magicCode = { (byte)'P', (byte)'V', (byte)'M', (byte)'H' };
 
-        public override ArchiveReader Open(Stream source)
+        public override LegacyArchiveReader Open(Stream source)
         {
             return new SvmArchiveReader(source);
         }
 
-        public override ArchiveWriter Create(Stream destination)
+        public override LegacyArchiveWriter Create(Stream destination)
         {
             return new SvmArchiveWriter(destination);
         }
@@ -62,7 +62,7 @@ namespace PuyoTools.Core.Archives
     }
 
     #region Archive Reader
-    public class SvmArchiveReader : ArchiveReader
+    public class SvmArchiveReader : LegacyArchiveReader
     {
         bool hasFilenames, hasFormats, hasDimensions, hasGlobalIndexes;
         int tableEntryLength, globalIndexOffset;
@@ -174,7 +174,7 @@ namespace PuyoTools.Core.Archives
     #endregion
 
     #region Archive Writer
-    public class SvmArchiveWriter : ArchiveWriter
+    public class SvmArchiveWriter : LegacyArchiveWriter
     {
         #region Settings
         /// <summary>

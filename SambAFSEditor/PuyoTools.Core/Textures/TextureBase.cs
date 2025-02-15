@@ -1,5 +1,8 @@
-﻿using System;
+﻿using SixLabors.ImageSharp.PixelFormats;
+using System;
+using System.Collections.Generic;
 using System.IO;
+
 
 namespace PuyoTools.Core.Textures
 {
@@ -14,6 +17,9 @@ namespace PuyoTools.Core.Textures
             get { return needsExternalPalette; }
         }
         protected bool needsExternalPalette = false;
+        public IList<Bgra32>? ExternalPalette { get; set; }
+        public byte[]? IncludedPaletteData { get; set; }
+
 
         /// <summary>
         /// If decoding, sets the palette data for the texture.

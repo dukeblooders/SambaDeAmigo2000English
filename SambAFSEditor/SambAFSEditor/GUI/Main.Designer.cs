@@ -29,166 +29,186 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.btnWorkingDir = new System.Windows.Forms.Button();
-            this.btnOpenAFS = new System.Windows.Forms.Button();
-            this.lblWorkingDir = new System.Windows.Forms.Label();
-            this.lblAFSFile = new System.Windows.Forms.Label();
-            this.panel = new System.Windows.Forms.Panel();
-            this.treeContent = new System.Windows.Forms.TreeView();
-            this.btnSaveAFS = new System.Windows.Forms.Button();
-            this.btnPuyoTools = new System.Windows.Forms.Button();
-            this.btnWorkingDirBrowse = new System.Windows.Forms.Button();
-            this.btnOpenAFSBrowse = new System.Windows.Forms.Button();
-            this.panelFile = new System.Windows.Forms.Panel();
-            this.panel.SuspendLayout();
-            this.SuspendLayout();
+            btnWorkingDir = new Button();
+            btnOpenAFS = new Button();
+            lblWorkingDir = new Label();
+            lblAFSFile = new Label();
+            panel = new Panel();
+            treeContent = new TreeView();
+            btnSaveAFS = new Button();
+            btnPuyoTools = new Button();
+            btnWorkingDirBrowse = new Button();
+            btnOpenAFSBrowse = new Button();
+            panelFile = new Panel();
+            btnPNGConverter = new Button();
+            btnLLKeywords = new Button();
+            panel.SuspendLayout();
+            SuspendLayout();
             // 
             // btnWorkingDir
             // 
-            this.btnWorkingDir.Location = new System.Drawing.Point(17, 16);
-            this.btnWorkingDir.Name = "btnWorkingDir";
-            this.btnWorkingDir.Size = new System.Drawing.Size(175, 23);
-            this.btnWorkingDir.TabIndex = 0;
-            this.btnWorkingDir.Text = "Select working directory";
-            this.btnWorkingDir.UseVisualStyleBackColor = true;
-            this.btnWorkingDir.Click += new System.EventHandler(this.btnWorkingDir_Click);
+            btnWorkingDir.Location = new Point(17, 16);
+            btnWorkingDir.Name = "btnWorkingDir";
+            btnWorkingDir.Size = new Size(175, 23);
+            btnWorkingDir.TabIndex = 0;
+            btnWorkingDir.Text = "Select working directory";
+            btnWorkingDir.UseVisualStyleBackColor = true;
+            btnWorkingDir.Click += btnWorkingDir_Click;
             // 
             // btnOpenAFS
             // 
-            this.btnOpenAFS.Enabled = false;
-            this.btnOpenAFS.Location = new System.Drawing.Point(17, 45);
-            this.btnOpenAFS.Name = "btnOpenAFS";
-            this.btnOpenAFS.Size = new System.Drawing.Size(175, 23);
-            this.btnOpenAFS.TabIndex = 3;
-            this.btnOpenAFS.Text = "Open AFS file";
-            this.btnOpenAFS.UseVisualStyleBackColor = true;
-            this.btnOpenAFS.Click += new System.EventHandler(this.btnOpenAFS_Click);
+            btnOpenAFS.Enabled = false;
+            btnOpenAFS.Location = new Point(17, 45);
+            btnOpenAFS.Name = "btnOpenAFS";
+            btnOpenAFS.Size = new Size(175, 23);
+            btnOpenAFS.TabIndex = 3;
+            btnOpenAFS.Text = "Open AFS file";
+            btnOpenAFS.UseVisualStyleBackColor = true;
+            btnOpenAFS.Click += btnOpenAFS_Click;
             // 
             // lblWorkingDir
             // 
-            this.lblWorkingDir.AutoSize = true;
-            this.lblWorkingDir.Location = new System.Drawing.Point(228, 20);
-            this.lblWorkingDir.Name = "lblWorkingDir";
-            this.lblWorkingDir.Size = new System.Drawing.Size(12, 15);
-            this.lblWorkingDir.TabIndex = 2;
-            this.lblWorkingDir.Text = "-";
+            lblWorkingDir.AutoSize = true;
+            lblWorkingDir.Location = new Point(228, 20);
+            lblWorkingDir.Name = "lblWorkingDir";
+            lblWorkingDir.Size = new Size(12, 15);
+            lblWorkingDir.TabIndex = 2;
+            lblWorkingDir.Text = "-";
             // 
             // lblAFSFile
             // 
-            this.lblAFSFile.AutoSize = true;
-            this.lblAFSFile.Enabled = false;
-            this.lblAFSFile.Location = new System.Drawing.Point(228, 49);
-            this.lblAFSFile.Name = "lblAFSFile";
-            this.lblAFSFile.Size = new System.Drawing.Size(12, 15);
-            this.lblAFSFile.TabIndex = 5;
-            this.lblAFSFile.Text = "-";
+            lblAFSFile.AutoSize = true;
+            lblAFSFile.Enabled = false;
+            lblAFSFile.Location = new Point(228, 49);
+            lblAFSFile.Name = "lblAFSFile";
+            lblAFSFile.Size = new Size(12, 15);
+            lblAFSFile.TabIndex = 5;
+            lblAFSFile.Text = "-";
             // 
             // panel
             // 
-            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel.Controls.Add(this.treeContent);
-            this.panel.Enabled = false;
-            this.panel.Location = new System.Drawing.Point(17, 89);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(955, 560);
-            this.panel.TabIndex = 8;
+            panel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel.Controls.Add(treeContent);
+            panel.Enabled = false;
+            panel.Location = new Point(17, 113);
+            panel.Name = "panel";
+            panel.Size = new Size(955, 536);
+            panel.TabIndex = 10;
             // 
             // treeContent
             // 
-            this.treeContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.treeContent.CheckBoxes = true;
-            this.treeContent.FullRowSelect = true;
-            this.treeContent.HideSelection = false;
-            this.treeContent.Location = new System.Drawing.Point(0, 0);
-            this.treeContent.Name = "treeContent";
-            this.treeContent.Size = new System.Drawing.Size(300, 560);
-            this.treeContent.TabIndex = 0;
-            this.treeContent.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeContent_AfterCheck);
-            this.treeContent.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeContent_AfterSelect);
+            treeContent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            treeContent.CheckBoxes = true;
+            treeContent.FullRowSelect = true;
+            treeContent.HideSelection = false;
+            treeContent.Location = new Point(0, 0);
+            treeContent.Name = "treeContent";
+            treeContent.Size = new Size(300, 536);
+            treeContent.TabIndex = 0;
+            treeContent.AfterCheck += treeContent_AfterCheck;
+            treeContent.AfterSelect += treeContent_AfterSelect;
             // 
             // btnSaveAFS
             // 
-            this.btnSaveAFS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveAFS.Enabled = false;
-            this.btnSaveAFS.Location = new System.Drawing.Point(797, 45);
-            this.btnSaveAFS.Name = "btnSaveAFS";
-            this.btnSaveAFS.Size = new System.Drawing.Size(175, 23);
-            this.btnSaveAFS.TabIndex = 7;
-            this.btnSaveAFS.Text = "Save AFS file";
-            this.btnSaveAFS.UseVisualStyleBackColor = true;
-            this.btnSaveAFS.Click += new System.EventHandler(this.btnSaveAFS_Click);
+            btnSaveAFS.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSaveAFS.Enabled = false;
+            btnSaveAFS.Location = new Point(17, 74);
+            btnSaveAFS.Name = "btnSaveAFS";
+            btnSaveAFS.Size = new Size(175, 23);
+            btnSaveAFS.TabIndex = 6;
+            btnSaveAFS.Text = "Save AFS file";
+            btnSaveAFS.UseVisualStyleBackColor = true;
+            btnSaveAFS.Click += btnSaveAFS_Click;
             // 
             // btnPuyoTools
             // 
-            this.btnPuyoTools.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPuyoTools.Location = new System.Drawing.Point(797, 16);
-            this.btnPuyoTools.Name = "btnPuyoTools";
-            this.btnPuyoTools.Size = new System.Drawing.Size(175, 23);
-            this.btnPuyoTools.TabIndex = 6;
-            this.btnPuyoTools.Text = "Open Puyo Tools";
-            this.btnPuyoTools.UseVisualStyleBackColor = true;
-            this.btnPuyoTools.Click += new System.EventHandler(this.btnPuyoTools_Click);
+            btnPuyoTools.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnPuyoTools.Location = new Point(797, 16);
+            btnPuyoTools.Name = "btnPuyoTools";
+            btnPuyoTools.Size = new Size(175, 23);
+            btnPuyoTools.TabIndex = 7;
+            btnPuyoTools.Text = "Open Puyo Tools";
+            btnPuyoTools.UseVisualStyleBackColor = true;
+            btnPuyoTools.Click += btnPuyoTools_Click;
             // 
             // btnWorkingDirBrowse
             // 
-            this.btnWorkingDirBrowse.Enabled = false;
-            this.btnWorkingDirBrowse.Image = global::SambAFSEditor.Properties.Resources.folder_small;
-            this.btnWorkingDirBrowse.Location = new System.Drawing.Point(195, 16);
-            this.btnWorkingDirBrowse.Name = "btnWorkingDirBrowse";
-            this.btnWorkingDirBrowse.Size = new System.Drawing.Size(25, 23);
-            this.btnWorkingDirBrowse.TabIndex = 1;
-            this.btnWorkingDirBrowse.UseVisualStyleBackColor = true;
-            this.btnWorkingDirBrowse.Click += new System.EventHandler(this.btnWorkingDirBrowse_Click);
+            btnWorkingDirBrowse.Enabled = false;
+            btnWorkingDirBrowse.Image = Properties.Resources.folder_small;
+            btnWorkingDirBrowse.Location = new Point(195, 16);
+            btnWorkingDirBrowse.Name = "btnWorkingDirBrowse";
+            btnWorkingDirBrowse.Size = new Size(25, 23);
+            btnWorkingDirBrowse.TabIndex = 1;
+            btnWorkingDirBrowse.UseVisualStyleBackColor = true;
+            btnWorkingDirBrowse.Click += btnWorkingDirBrowse_Click;
             // 
             // btnOpenAFSBrowse
             // 
-            this.btnOpenAFSBrowse.Enabled = false;
-            this.btnOpenAFSBrowse.Image = global::SambAFSEditor.Properties.Resources.folder_small;
-            this.btnOpenAFSBrowse.Location = new System.Drawing.Point(195, 45);
-            this.btnOpenAFSBrowse.Name = "btnOpenAFSBrowse";
-            this.btnOpenAFSBrowse.Size = new System.Drawing.Size(25, 23);
-            this.btnOpenAFSBrowse.TabIndex = 4;
-            this.btnOpenAFSBrowse.UseVisualStyleBackColor = true;
-            this.btnOpenAFSBrowse.Click += new System.EventHandler(this.btnOpenAFSBrowse_Click);
+            btnOpenAFSBrowse.Enabled = false;
+            btnOpenAFSBrowse.Image = Properties.Resources.folder_small;
+            btnOpenAFSBrowse.Location = new Point(195, 45);
+            btnOpenAFSBrowse.Name = "btnOpenAFSBrowse";
+            btnOpenAFSBrowse.Size = new Size(25, 23);
+            btnOpenAFSBrowse.TabIndex = 4;
+            btnOpenAFSBrowse.UseVisualStyleBackColor = true;
+            btnOpenAFSBrowse.Click += btnOpenAFSBrowse_Click;
             // 
             // panelFile
             // 
-            this.panelFile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelFile.BackColor = System.Drawing.SystemColors.Control;
-            this.panelFile.Location = new System.Drawing.Point(323, 89);
-            this.panelFile.Name = "panelFile";
-            this.panelFile.Size = new System.Drawing.Size(649, 560);
-            this.panelFile.TabIndex = 1;
+            panelFile.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelFile.BackColor = SystemColors.Control;
+            panelFile.Location = new Point(323, 113);
+            panelFile.Name = "panelFile";
+            panelFile.Size = new Size(649, 536);
+            panelFile.TabIndex = 11;
+            // 
+            // btnPNGConverter
+            // 
+            btnPNGConverter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnPNGConverter.Location = new Point(797, 45);
+            btnPNGConverter.Name = "btnPNGConverter";
+            btnPNGConverter.Size = new Size(175, 23);
+            btnPNGConverter.TabIndex = 8;
+            btnPNGConverter.Text = "PVR Converter";
+            btnPNGConverter.UseVisualStyleBackColor = true;
+            btnPNGConverter.Click += btnPVRConverter_Click;
+            // 
+            // btnLLKeywords
+            // 
+            btnLLKeywords.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnLLKeywords.Location = new Point(797, 74);
+            btnLLKeywords.Name = "btnLLKeywords";
+            btnLLKeywords.Size = new Size(175, 23);
+            btnLLKeywords.TabIndex = 9;
+            btnLLKeywords.Text = "Love Love Keywords";
+            btnLLKeywords.UseVisualStyleBackColor = true;
+            btnLLKeywords.Click += btnLLKeywords_Click;
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.panelFile);
-            this.Controls.Add(this.panel);
-            this.Controls.Add(this.lblAFSFile);
-            this.Controls.Add(this.lblWorkingDir);
-            this.Controls.Add(this.btnPuyoTools);
-            this.Controls.Add(this.btnSaveAFS);
-            this.Controls.Add(this.btnOpenAFS);
-            this.Controls.Add(this.btnOpenAFSBrowse);
-            this.Controls.Add(this.btnWorkingDirBrowse);
-            this.Controls.Add(this.btnWorkingDir);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1000, 700);
-            this.Name = "Main";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SambAFSEditor";
-            this.panel.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(984, 661);
+            Controls.Add(btnLLKeywords);
+            Controls.Add(btnPNGConverter);
+            Controls.Add(panelFile);
+            Controls.Add(panel);
+            Controls.Add(lblAFSFile);
+            Controls.Add(lblWorkingDir);
+            Controls.Add(btnPuyoTools);
+            Controls.Add(btnSaveAFS);
+            Controls.Add(btnOpenAFS);
+            Controls.Add(btnOpenAFSBrowse);
+            Controls.Add(btnWorkingDirBrowse);
+            Controls.Add(btnWorkingDir);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(1000, 700);
+            Name = "Main";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "SambAFSEditor";
+            panel.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -204,5 +224,7 @@
         private Button btnWorkingDirBrowse;
         private Button btnOpenAFSBrowse;
         private Panel panelFile;
+        private Button btnPNGConverter;
+        private Button btnLLKeywords;
     }
 }

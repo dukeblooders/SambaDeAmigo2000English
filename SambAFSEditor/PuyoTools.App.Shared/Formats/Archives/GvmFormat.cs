@@ -1,4 +1,6 @@
-﻿using PuyoTools.Core;
+﻿using PuyoTools.Archives;
+using PuyoTools.Archives.Formats.Gvm;
+using PuyoTools.Core;
 using PuyoTools.Core.Archives;
 using System;
 using System.Collections.Generic;
@@ -25,6 +27,10 @@ namespace PuyoTools.App.Formats.Archives
 
         public ArchiveBase GetCodec() => new GvmArchive();
 
-        public bool Identify(Stream source, string filename) => GvmArchive.Identify(source);
+        public ArchiveReader CreateReader(Stream source) => new GvmReader(source);
+
+        public ArchiveWriter CreateWriter(Stream destination) => new GvmWriter(destination);
+
+        public bool Identify(Stream source, string filename) => GvmReader.IsFormat(source);
     }
 }

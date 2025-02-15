@@ -148,7 +148,11 @@ namespace SambAFSEditor
                 btnSaveAFS.Enabled = false;
                 btnSaveAFS.Refresh();
 
+                clearFilePanel();
+
                 AFS.Write(this, workStruct);
+
+                treeContent_AfterSelect(treeContent, new TreeViewEventArgs(treeContent.SelectedNode));
             }
             catch (Exception ex)
             {
@@ -190,7 +194,7 @@ namespace SambAFSEditor
 
                         addChildrenFiles(workStruct, contentFile, node);
                     }
-                
+
                 clearFilePanel();
             }
             catch (Exception ex)
@@ -244,7 +248,7 @@ namespace SambAFSEditor
                 if (((ContentFile)child.Tag).Id == id)
                     return child;
 
-            return null;           
+            return null;
         }
 
 
@@ -406,6 +410,30 @@ namespace SambAFSEditor
 
         #endregion
 
+
+
+        /// <summary>
+        /// Open Love Love Keywords form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLLKeywords_Click(object sender, EventArgs e)
+        {
+            using var form = new FrmLLKeywords { Icon = Icon };
+
+            form.ShowDialog(this);
+        }
+
+
+        /// <summary>
+        /// Open PNG Converter form
+        /// </summary>
+        private void btnPVRConverter_Click(object sender, EventArgs e)
+        {
+            using var form = new FrmPvrConverter { Icon = Icon };
+
+            form.ShowDialog(this);
+        }
 
 
         /// <summary>

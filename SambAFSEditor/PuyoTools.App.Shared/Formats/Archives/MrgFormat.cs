@@ -1,4 +1,6 @@
-﻿using PuyoTools.Core;
+﻿using PuyoTools.Archives;
+using PuyoTools.Archives.Formats.Mrg;
+using PuyoTools.Core;
 using PuyoTools.Core.Archives;
 using System;
 using System.Collections.Generic;
@@ -25,6 +27,10 @@ namespace PuyoTools.App.Formats.Archives
 
         public ArchiveBase GetCodec() => new MrgArchive();
 
-        public bool Identify(Stream source, string filename) => MrgArchive.Identify(source);
+        public ArchiveReader CreateReader(Stream source) => new MrgReader(source);
+
+        public ArchiveWriter CreateWriter(Stream destination) => null;
+
+        public bool Identify(Stream source, string filename) => MrgReader.IsFormat(source);
     }
 }

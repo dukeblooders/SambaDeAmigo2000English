@@ -57,6 +57,11 @@ namespace PuyoTools.Core.Textures.Pvr
         public PvrCompressionFormat CompressionFormat { get; private set; }
 
         /// <summary>
+        /// Gets the decoded palette data
+        /// </summary>
+        public byte[]? IncludedPaletteData { get; private set; }
+
+        /// <summary>
         /// Gets the global index, or <see langword="null"/> if no global index exists.
         /// </summary>
         public uint? GlobalIndex { get; private set; }
@@ -205,6 +210,7 @@ namespace PuyoTools.Core.Textures.Pvr
             if (dataCodec.PaletteEntries != 0 && !dataCodec.NeedsExternalPalette)
             {
                 paletteData = reader.ReadBytes(paletteEntries * pixelCodec.BitsPerPixel / 8);
+                IncludedPaletteData = DecodePalette();
             }
 
             // If the texture contains mipmaps, read them into the texture mipmap data array.

@@ -13,12 +13,12 @@ namespace PuyoTools.Core.Archives
         private static readonly byte[] magicCode = { (byte)'P', (byte)'V', (byte)'M', (byte)'H' };
         private static readonly byte[] pvrtMagicCode = { (byte)'P', (byte)'V', (byte)'R', (byte)'T' };
 
-        public override ArchiveReader Open(Stream source)
+        public override LegacyArchiveReader Open(Stream source)
         {
             return new PvmArchiveReader(source);
         }
 
-        public override ArchiveWriter Create(Stream destination)
+        public override LegacyArchiveWriter Create(Stream destination)
         {
             return new PvmArchiveWriter(destination);
         }
@@ -126,7 +126,7 @@ namespace PuyoTools.Core.Archives
     }
 
     #region Archive Reader
-    public class PvmArchiveReader : ArchiveReader
+    public class PvmArchiveReader : LegacyArchiveReader
     {
         private static readonly byte[] pvrtMagicCode = { (byte)'P', (byte)'V', (byte)'R', (byte)'T' };
 
@@ -251,7 +251,7 @@ namespace PuyoTools.Core.Archives
     #endregion
 
     #region Archive Writer
-    public class PvmArchiveWriter : ArchiveWriter
+    public class PvmArchiveWriter : LegacyArchiveWriter
     {
         #region Settings
         /// <summary>

@@ -10,12 +10,12 @@ namespace PuyoTools.Core.Archives
     {
         private static readonly byte[] magicCode = { (byte)'A', (byte)'F', (byte)'S', 0 };
 
-        public override ArchiveReader Open(Stream source)
+        public override LegacyArchiveReader Open(Stream source)
         {
             return new AfsArchiveReader(source);
         }
 
-        public override ArchiveWriter Create(Stream destination)
+        public override LegacyArchiveWriter Create(Stream destination)
         {
             return new AfsArchiveWriter(destination);
         }
@@ -38,7 +38,7 @@ namespace PuyoTools.Core.Archives
     }
 
     #region Archive Reader
-    public class AfsArchiveReader : ArchiveReader
+    public class AfsArchiveReader : LegacyArchiveReader
     {
         public AfsArchiveReader(Stream source) : base(source)
         {
@@ -82,7 +82,7 @@ namespace PuyoTools.Core.Archives
     #endregion
 
     #region Archive Writer
-    public class AfsArchiveWriter : ArchiveWriter
+    public class AfsArchiveWriter : LegacyArchiveWriter
     {
         #region Settings
         /// <summary>

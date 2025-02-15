@@ -3,61 +3,60 @@
 
 [![SAMBA DE AMIGO](http://img.youtube.com/vi/BrYIlFHXL88/0.jpg)](https://youtu.be/BrYIlFHXL88 "Click to watch the video!")  
 
-First, this is not a translation, but a conversion. I don't speak japanese and my english is passable, at best :D
+First of all, this is not a translation, but a conversion. I don't speak Japanese and my English is passable, at best :D
 
 Most of the texts come from the US/PAL version of Samba de Amigo or the Wii version.  
 Some have been adapted to fit the available space and there are probably mistakes.
 
-Let me know if you see something incorrect and I'll see what I can do.
+Let me know if you see anything incorrect and I'll see what I can do.
+
+**All DLC songs are available in the Download section of the official website, which is integrated and accessible <ins>offline</ins> in the Internet menu.**
 
 
-## How to patch the game ?
+## How to patch the game?
 
 Download Universal Dreamcast Patcher and the .dcp file. Run the program and follow the instructions.
 
 
-## Does the patched version work on original hardware ?
+## How to create a CDI to play on original hardware?
 
-I haven't tested myself, but since it's just a texture and sound replacement with the same attributes, it should work.
-
-
-## This Is Not the Text You Are Looking For
-
-Technically, there is no text in this game, only images (at least for the big part).  
-I did my best to reproduce those graphics with the same color palette Sega used.  
-I'm not an artist, nor a photoshop expert, so expect some flaws in my textures.  
-(but believe me, this game has its share of poor quality textures). 
-
-## Known issues / Missing conversions
-
-1. **Internet menu is not translated**  
-The menu use a secondary 'application' with files to modify which are different from the base game.  
-I'm not even sure it's usable in some way, so I won't work on it, but if someone wants to deal with it, (s)he's welcome.
-
-2. **Love Love results are still in Japanese**  
-This part uses matrixes (images with japanese characters).  
-There is a matrix with an alphabet, but I have no idea how to change the text to use this matrix (probably in the 1ST_READ.BIN, but it's out of my league).
-  
-3. **The volleyball instructions voice was removed**   
-Since I'm not using the text from the Wii version because I'm not sure the mini-games are the same, the voice was simply removed.
+1. Patch your GDI (obviously).
+2. Download GD-ROM Explorer, Lazyboot and ImgBurn, available in the **various** folder.
+3. Open the GDI with GD-ROM Explorer and extract IP.bin and all files under SAMBA_V2K into Lazyboot's **data** folder.
+4. Start **Lazyboot.cmd**, select **1** (Audio/Data) or **4** (Data/Data) if you have issues with 1; at **step 2**, enter **SAMBA_V2K**, and keep pressing Enter to the end.
+5. Test your CDI with a Dreamcast emulator.
+6. Burn the file with ImgBurn (or another software). There's a Readme.txt file inside the archive.
 
 
 ## Fonts
 
-The game uses the following fonts (for the US/PAL version):
-- **Comic Sans MS** for the basic texts
-- **Chilada** for the rest (I didn't find the exact same font the game uses, but this one is really close)
+This conversion uses the following fonts:
+- **Comic Sans MS** for basic texts
+- **Chilada** for the rest (I didn't find the exact same font used by the game, but this one is really close)
 
 
 ## SambAFSEditor
 
-A custom .Net 6.0 application I develop to edit the AFS files for Samba de Amigo with the help of the Puyo Tools source code.  
-It's a bit wonky, but it gets the job done and could probably be used with other games which had the same structure.
+A custom .Net 8.0 application I developed for editing AFS files for Samba de Amigo, with the help from Puyo Tools source code.  
+It's a bit wonky, but it gets the job done and could probably be used with other games with the same structure.
 
-Each .pvm/.pvr file is automatically decompressed and displayed in a tree view and can be easily updated (the attributes of the file are maintain to prevent issues).
+Each .pvm/.pvr file is automatically decompressed and displayed in a tree view and can be easily updated (file attributes are preserved to avoid issues).
+Also includes an editor for Love Love keywords and a PVR converter, with palettes (PVP or VQ).
 
 
-## Credits
+## Tools and usage
+
+A big thanks to people who developed these tools:
+- flycast (Dreamcast emulator)
+- GD-ROM Explorer (open GDI/CDI file and extract content)
+- GDIBuilder (create a "track03.bin" file for GDI)
+- CrystalTile2 (replace VMU logo in 1st_read.bin, Display:Tile, size:48x32, form:GBA 8pp)
+- HxD and wxMEdit (hex editors, HxD has a comparison tool, wxMEdit has Shift-JIS encoding)
+- VMUExplorer (edit VMU content, fix VMU CRC)
+- And other scripts or tools I used
+
+
+## Special credits
 
 Puyo Tools, to compress/decompress files or create/extract archives:  
 https://github.com/nickworonekin/puyotools
@@ -65,5 +64,5 @@ https://github.com/nickworonekin/puyotools
 AltoRetrato for the very helpful documentation:  
 https://github.com/AltoRetrato/samba-de-amigo-2k_modding
 
-And other people of the different existing Dreamcast tools:  
-GD-ROM Explorer, GDIbuilder, VMU Explorer, Universal Dreamcast Patcher, ...
+People who helped me (ateam, yzb and the others) at:
+https://www.dreamcast-talk.com/forum/viewtopic.php?t=18162

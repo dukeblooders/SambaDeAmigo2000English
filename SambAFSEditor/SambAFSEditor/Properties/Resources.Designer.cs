@@ -61,6 +61,15 @@ namespace SambAFSEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Done.
+        /// </summary>
+        internal static string Done {
+            get {
+                return ResourceManager.GetString("Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot save file at specified location!.
         /// </summary>
         internal static string ErrorCannotSaveFile {
@@ -106,11 +115,38 @@ namespace SambAFSEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BIN file|*.bin.
+        /// </summary>
+        internal static string FilterBIN {
+            get {
+                return ResourceManager.GetString("FilterBIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PNG file|*.png.
         /// </summary>
         internal static string FilterPNG {
             get {
                 return ResourceManager.GetString("FilterPNG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PVP file|*.pvp.
+        /// </summary>
+        internal static string FilterPVP {
+            get {
+                return ResourceManager.GetString("FilterPVP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PVR file|*.pvr.
+        /// </summary>
+        internal static string FilterPVR {
+            get {
+                return ResourceManager.GetString("FilterPVR", resourceCulture);
             }
         }
         

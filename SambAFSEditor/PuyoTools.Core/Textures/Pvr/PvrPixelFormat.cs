@@ -12,5 +12,6 @@ namespace PuyoTools.Core.Textures.Pvr
         Yuv422   = 0x03,
         Bump     = 0x04,
         Argb8888 = 0x06,
+        Vq       = 0x08
     }
 }

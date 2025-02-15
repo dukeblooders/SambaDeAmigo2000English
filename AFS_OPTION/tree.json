@@ -1,6 +1,6 @@
 {
-  "Directory": "C:\\Users\\Utilisateur\\Desktop\\Work\\AFS_OPTION",
-  "AFSFilePath": "C:\\Users\\Utilisateur\\Desktop\\Samba\\Samba2K_Exported\\SAMBA_V2K\\AFS_OPTION.AFS",
+  "Directory": "C:\\Users\\jerem\\Desktop\\Samba\\_WORK\\AFS_OPTION",
+  "AFSFilePath": "C:\\Users\\jerem\\Desktop\\Samba\\GDI\\Extracted\\AFS_OPTION.AFS",
   "ContentFiles": [
     {
       "Id": 1,
@@ -70,7 +70,7 @@
       "FolderPath": "_AFSDIR_",
       "Type": "PVR",
       "Compression": "PRS",
-      "Checked": false,
+      "Checked": true,
       "UpToDate": false,
       "FileCount": 0
     },
@@ -82,7 +82,7 @@
       "FolderPath": "_AFSDIR_",
       "Type": "PVR",
       "Compression": "PRS",
-      "Checked": false,
+      "Checked": true,
       "UpToDate": false,
       "FileCount": 0
     },
